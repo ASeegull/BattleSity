@@ -1,0 +1,71 @@
+body {
+  background-color: #000032;
+  min-height: 80%;
+}
+a#start {
+margin-left: 20%;
+margin-top: 5%;
+}
+
+a#start:active {
+background: yellow; 
+}
+a#start:hover {
+transform: scale(2, 2);
+}
+
+
+
+.battlefield {
+  height: 580px;
+  background: url(../img/bg.jpg) no-repeat right center;
+  background-size: contain;
+
+}
+
+#scene {
+  position: fixed;
+  width: 636px;
+  height: 636px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 400px;
+
+}
+
+
+
+input {
+ padding: 0px;
+ font-size: 20px;
+ border: 10px solid rgba(255, 255, 255, .5);
+ border-radius:50px;
+ -moz-border-radius:50px;
+ -webkit-border-radius:50px;
+ -khtml-border-radius:50px;
+ font-size:20px; color:#fff;
+ text-align:center;
+ background:#000
+ 
+ background: rgba(255, 255, 255, .5);
+ @include appearance(none);
+ outline: none;
+ color: black;
+ width: 10%;
+ position: relative;
+ left: 15%;
+
+}
+
+.mapSelect {
+position: relative;
+top: 0px;
+left: 0px;
+}
+
+
+.mapSelect #numb {
+position: relative;
+left: 0px;
+}
