@@ -136,7 +136,7 @@ function startGame() {
     context.fillRect(0, 0, canvas.width, canvas.height);
 
     context.save();
-    
+
     for (var y = 0; y < iYCnt; y++) {
       for (var x = 0; x < iXCnt; x++) {
         switch (aMap[y][x]) {
