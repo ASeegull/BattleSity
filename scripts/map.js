@@ -1,6 +1,4 @@
-
-
-$('.mapSelect button').click(mapValue);
+$('.mapSelect button').click(mapValue); // Вішає на кнопку вибору рівня зміну карти
 
 function mapValue() {
   var mapValue = $('#numb').val();
@@ -50,7 +48,6 @@ function setMap() {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   ];
-
 }
 
 function setMap1() {
@@ -83,7 +80,6 @@ function setMap1() {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   ];
-
 }
 
 function setMap2() {
@@ -116,11 +112,10 @@ function setMap2() {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   ];
-
 }
 
 
-function game() {
+function startGame() {
   var canvas, context;
   var imgBrick, imgSteel, imgWater, imgForest, imgTank, imgBullet;
   var iCellSize = 24,
@@ -176,7 +171,6 @@ function game() {
     context = canvas.getContext('2d');
     setMap();
 
-
     imgBrick = new Image();
     imgBrick.src = 'img/brick.png';
     imgSteel = new Image();
@@ -187,9 +181,6 @@ function game() {
     imgForest.src = 'img/forest.png';
     imgTank = new Image();
     imgTank.src = 'img/tank.png';
-    imgBullet = new Image();
-    imgBullet.src = 'img/bullet.png'
-
   });
 
 
@@ -209,7 +200,6 @@ function game() {
         iRotate = 24;
         iPosTankX--;
         move.play();
-        console.log(iPosTankX, iPosTankY);
       }
 
     } else if (target === 38) {
@@ -217,21 +207,18 @@ function game() {
         iRotate = 48;
         iPosTankY--;
         move.play();
-        console.log(iPosTankX, iPosTankY);
       }
     } else if (target === 39) {
       if (iPosTankX + 1 < iXCnt && aMap[iPosTankY][iPosTankX + 1] === 0) {
         iPosTankX++;
         iRotate = 0;
         move.play();
-        console.log(iPosTankX, iPosTankY);
       }
     } else if (target === 40) {
       if (iPosTankY + 1 < iYCnt && aMap[iPosTankY + 1][iPosTankX] === 0) {
         iRotate = 72;
         iPosTankY++;
         move.play();
-        console.log(iPosTankX, iPosTankY);
       }
     }
   }
@@ -239,41 +226,11 @@ function game() {
 
   function shotting(e) {
     var target = e.keyCode;
+    if (target === 32) {
     e.preventDefault(); // Щоб екран не дьоргався
     var shot = $('.gunshot')[0];
     shot.currentTime = 0;
-    
-    if (target === 32 && iRotate === 24) {
-      context.drawImage();
-      shot.play();
-    }
-
-    if (target === 32) {
-      if (iPosTankX - 1 >= 0 && aMap[iPosTankY][iPosTankX - 1] === 0) {
-        iRotate = 24;
-        iPosTankX--;
-        shot.play();
-      }
-
-    } else if (target === 38) {
-      if (iPosTankY - 1 >= 0 && aMap[iPosTankY - 1][iPosTankX] === 0) {
-        iRotate = 48;
-        iPosTankY--;
-        move.play();
-      }
-    } else if (target === 39) {
-      if (iPosTankX + 1 < iXCnt && aMap[iPosTankY][iPosTankX + 1] === 0) {
-        iPosTankX++;
-        iRotate = 0;
-        move.play();
-      }
-    } else if (target === 40) {
-      if (iPosTankY + 1 < iYCnt && aMap[iPosTankY + 1][iPosTankX] === 0) {
-        iRotate = 72;
-        iPosTankY++;
-        move.play();
-
-      }
+    shot.play();
     }
   }
 }
