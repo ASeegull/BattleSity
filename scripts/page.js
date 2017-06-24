@@ -1,7 +1,7 @@
 var $mapSelect = $('.mapSelect');
 $mapSelect.hide();
-//
 $('#start').click(createBattleField);
+
 
 function createBattleField() {
   var $battlefield = $('.battlefield');
@@ -14,6 +14,6 @@ $mapSelect.show();
   $scene.appendTo($battlefield); // and adds it to the page
 
 
-  map();
+  game();
 }
 
