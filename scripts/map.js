@@ -174,8 +174,6 @@ function game() {
     canvas.width = iXCnt * iCellSize;
     canvas.height = iYCnt * iCellSize;
     context = canvas.getContext('2d');
-
-
     setMap();
 
 
@@ -203,7 +201,7 @@ function game() {
 
   function moving(e) {
     var target = e.keyCode;
-    var move = $('.move')[0];
+    var move = $('.move')[0];  // обирає аудіо тег
     move.currentTime = 0.5;
 
     if (target === 37) {
@@ -211,6 +209,7 @@ function game() {
         iRotate = 24;
         iPosTankX--;
         move.play();
+        console.log(iPosTankX, iPosTankY);
       }
 
     } else if (target === 38) {
@@ -218,19 +217,21 @@ function game() {
         iRotate = 48;
         iPosTankY--;
         move.play();
+        console.log(iPosTankX, iPosTankY);
       }
     } else if (target === 39) {
       if (iPosTankX + 1 < iXCnt && aMap[iPosTankY][iPosTankX + 1] === 0) {
         iPosTankX++;
         iRotate = 0;
         move.play();
+        console.log(iPosTankX, iPosTankY);
       }
     } else if (target === 40) {
       if (iPosTankY + 1 < iYCnt && aMap[iPosTankY + 1][iPosTankX] === 0) {
         iRotate = 72;
         iPosTankY++;
         move.play();
-
+        console.log(iPosTankX, iPosTankY);
       }
     }
   }
@@ -240,12 +241,14 @@ function game() {
     var target = e.keyCode;
     e.preventDefault(); // Щоб екран не дьоргався
     var shot = $('.gunshot')[0];
-    if (target === 37 && iRotate === 24) {
-      shot.currentTime = 0;
+    shot.currentTime = 0;
+    
+    if (target === 32 && iRotate === 24) {
+      context.drawImage();
       shot.play();
     }
 
-    if (target === 37) {
+    if (target === 32) {
       if (iPosTankX - 1 >= 0 && aMap[iPosTankY][iPosTankX - 1] === 0) {
         iRotate = 24;
         iPosTankX--;
