@@ -136,7 +136,7 @@ function startGame() {
     context.fillRect(0, 0, canvas.width, canvas.height);
 
     context.save();
-
+    
     for (var y = 0; y < iYCnt; y++) {
       for (var x = 0; x < iXCnt; x++) {
         switch (aMap[y][x]) {
@@ -170,7 +170,7 @@ function startGame() {
     canvas.height = iYCnt * iCellSize;
     context = canvas.getContext('2d');
     setMap();
-
+  // Доступаємось до картинок для малювання мапи
     imgBrick = new Image();
     imgBrick.src = 'img/brick.png';
     imgSteel = new Image();

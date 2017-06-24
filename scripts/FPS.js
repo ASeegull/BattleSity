@@ -1,7 +1,6 @@
-let frameCount = function _fc(timeStart){
-        
-        let now = performance.now();
-        let duration = now - timeStart;
+var frameCount = function _fc(timeStart){
+        var now = performance.now();
+        var duration = now - timeStart;
         
         if(duration < 1000){
             
@@ -12,12 +11,12 @@ let frameCount = function _fc(timeStart){
             _fc.fps = _fc.counter;
             _fc.counter = 0;
             timeStart = now; 
-            //console.log(_fc.fps);
+            // console.log(_fc.fps);
         
 
         }
-        requestAnimationFrame(() => frameCount(timeStart)); 
-    }
+        requestAnimationFrame(function() {frameCount(timeStart)});
+    };
 
 frameCount.counter = 0;
 frameCount.fps = 0;
