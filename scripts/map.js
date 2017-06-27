@@ -1,5 +1,9 @@
 $('.mapSelect button').click(mapValue); // adds event listener on the map's menu button
-
+function defaultPosition () {
+  iPosTankX = 13, // resets tank's position after map's switch
+  iPosTankY = 25;
+   
+}
 function mapValue() {
   var mapValue = $('#numb').val();
 
@@ -8,12 +12,15 @@ function mapValue() {
   }
   if (mapValue == 1) {
     setMap();
+    defaultPosition();
   }
   if (mapValue == 2) {
     setMap1();
+    defaultPosition();
   }
   if (mapValue == 3) {
     setMap2();
+    defaultPosition();
   }
 }
 
@@ -117,14 +124,12 @@ function setMap2() {
 
 function startGame() {
   var canvas, context;
-  var imgBrick, imgSteel, imgWater, imgForest, imgTank, imgBullet;
+  var imgBrick, imgSteel, imgWater, imgForest, imgTank;
   var iCellSize = 24,
-    iPosTankX = 13,
-    iPosTankY = 25,
     iXCnt = 26,
     iYCnt = 26,
     iRotate = 47;
-
+  defaultPosition ();
 
   function clear() {
     context.clearRect(0, 0, canvas.width, canvas.height);
