@@ -7,7 +7,7 @@ function createBattleField() {
   $battlefield.empty(); // clears page from headings and start button
   $('.begin')[0].play();
 
-  $mapSelect.show(); // показує "меню" вибору карти
+  $mapSelect.show(); // shows map's menu
 
   var $scene = $('<canvas/>', {
     id: 'scene'          // creates canvas

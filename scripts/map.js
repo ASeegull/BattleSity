@@ -1,4 +1,4 @@
-$('.mapSelect button').click(mapValue); // Вішає на кнопку вибору рівня зміну карти
+$('.mapSelect button').click(mapValue); // adds event listener on the map's menu button
 
 function mapValue() {
   var mapValue = $('#numb').val();
@@ -51,7 +51,7 @@ function setMap() {
 }
 
 function setMap1() {
-  //Map1
+  //Map2
   aMap = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -83,7 +83,7 @@ function setMap1() {
 }
 
 function setMap2() {
-  //Map1
+  //Map3
   aMap = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -137,7 +137,7 @@ function startGame() {
 
     context.save();
 
-    for (var y = 0; y < iYCnt; y++) {
+    for (var y = 0; y < iYCnt; y++) { 
       for (var x = 0; x < iXCnt; x++) {
         switch (aMap[y][x]) {
           case 0:
@@ -170,7 +170,7 @@ function startGame() {
     canvas.height = iYCnt * iCellSize;
     context = canvas.getContext('2d');
     setMap();
-  // Доступаємось до картинок для малювання мапи
+  // paths for images used by canvas
     imgBrick = new Image();
     imgBrick.src = 'img/brick.png';
     imgSteel = new Image();
@@ -192,7 +192,7 @@ function startGame() {
 
   function moving(e) {
     var target = e.keyCode;
-    var move = $('.move')[0];  // обирає аудіо тег
+    var move = $('.move')[0];  // selects audio tag
     move.currentTime = 0.5;
 
     if (target === 37) {
@@ -227,7 +227,7 @@ function startGame() {
   function shotting(e) {
     var target = e.keyCode;
     if (target === 32) {
-    e.preventDefault(); // Щоб екран не дьоргався
+    e.preventDefault(); // Prevents screen tilt on space press
     var shot = $('.gunshot')[0];
     shot.currentTime = 0;
     shot.play();
